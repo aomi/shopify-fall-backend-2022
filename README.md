@@ -41,6 +41,10 @@ The GraphQL endpoint and the GraphiQL playground can be found at [http://localho
 
 If some seed data is desired, `npx prisma db seed` can be excuted and some _cool_ shirts and jeans will be added to the database.
 
+## Testing
+
+To execute the tests, run `npm test` and this will start executing the tests.
+
 # Future Work
 
 For future work, I would implement the following features and fixes:
