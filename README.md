@@ -1,6 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Shopify Backend Fall 2022 Challenge
 
-## Getting Started
+This is my submission for the Shopify Developer Intern Challenge. I chose to implement a backend for a fictional inventory tracking web application.
+
+Apart from the basic CRUD functionalities for inventory, this application implements soft-deletion with comments.
+
+## Language
+
+I used TypeScript running on Node.js for my backend. I feel using a statically-typed language is a great tool in catching trivial errors otherwise missed with untyped languages.
+
+## Framework
+
+I used [Next.js](https://nextjs.org/) to create the backend using API routes as the developer experience with Next.js is fast and efficient. I also wanted to leave the possobility of adding a frontend time permitting.
+
+## API
+
+I implemented a GraphQL endpoint which is attached to API routes in Next.js. I chose to use GraphQL as it creates a interface that both frontend and backend engineers can use in a way that works for them. I also like how a lot of the documentation is built from just the schema.
+The GraphQL endpoint was implemented using [Nexus](https://nexusjs.org/), a type-safe way of defining GraphQL schemas.
+
+## Database
+
+For the data persistence, I used [Prisma](https://nexusjs.org/) with sqlite3. Having typings for the models used in the database made typing every smooth and easy. As the queries required in this application were not very complicated, I felt an object-relational-mapper would work well here.
+
+## Testing
+
+For testing, I used [Jest](https://jestjs.io/) as my testing framework. I implemented tests for the GraphQL queries and mutations while I developed my application.
+
+# Getting Started
 
 First, run the development server:
 
@@ -12,23 +37,18 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The GraphQL endpoint and the GraphiQL playground can be found at [http://localhost:3000/api/graphql](http://localhost:3000/api/graphql).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+If some seed data is desired, `npx prisma db seed` can be excuted and some _cool_ shirts and jeans will be added to the database.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Future Work
 
-## Learn More
+For future work, I would implement the following features and fixes:
 
-To learn more about Next.js, take a look at the following resources:
+## Data Validation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+While the GraphQL does some data validation, I would implement further data validation on mutations like character length and invalid language on product titles etc. I demonstrated some of this against the `quantity` property on the inventory objects.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Testing
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+While there are test cases for mutations and queries, I would try to further make these tests more robust. The currently implemented tests are moreso integration tests as they all hit the database layer. I would like to abstract the database away in further development for a better development experience as well as making sure unit tests and integration tests exist where they are appropriate.

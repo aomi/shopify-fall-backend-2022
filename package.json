@@ -1,20 +1,52 @@
 {
   "name": "shopify-fall-2022",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aomi/shopify-fall-2022.git"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch",
+    "test:ci": "jest --ci"
   },
   "dependencies": {
+    "@graphql-yoga/node": "^2.6.0",
+    "@prisma/client": "^3.14.0",
+    "graphql": "^16.5.0",
     "next": "12.1.6",
+    "nexus": "^1.3.0",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^14.2.0",
+    "@types/node": "^17.0.34",
+    "@types/react": "^18.0.9",
+    "@types/sqlite3": "^3.1.8",
+    "@types/supertest": "^2.0.12",
+    "babel-jest": "^28.1.0",
     "eslint": "8.15.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
+    "jest-mock-extended": "^2.0.6",
+    "prisma": "^3.14.0",
+    "supertest": "^6.2.3",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "volta": {
+    "node": "16.15.0"
   }
 }
